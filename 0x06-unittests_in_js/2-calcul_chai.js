@@ -1,14 +1,23 @@
-const calculateNumber = (type, a, b) => {
+/**
+ * Round params and sum them
+ * @param {string} type
+ * @param {number} a
+ * @param {number} b
+ */
+function calculateNumber(type, a, b) {
+  let result;
   if (type === 'SUM') {
-    return Math.round(a) + Math.round(b);
+    result = Math.round(a) + Math.round(b);
+  } else if (type === 'SUBTRACT') {
+    result = Math.round(a) - Math.round(b);
+  } else if (type === 'DIVIDE') {
+    if (Math.abs(Math.round(b)) === 0) {
+      result = 'Error';
+    } else {
+      result = Math.round(a) / Math.round(b);
+    }
   }
-  if (type === 'SUBTRACT') {
-    return Math.round(a) - Math.round(b);
-  }
-  if (type === 'DIVIDE') {
-    return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
-  }
-  return 0;
-};
+  return result;
+}
 
 module.exports = calculateNumber;

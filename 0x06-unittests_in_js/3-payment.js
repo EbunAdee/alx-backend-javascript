@@ -1,3 +1,6 @@
+/**
+ * Payment scripts
+ */
 const Utils = require('./utils');
 
 const sendPaymentRequestToApi = (totalAmount, totalShipping) => {
